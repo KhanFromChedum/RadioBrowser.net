@@ -28,5 +28,15 @@ namespace TestRadioBrowser.net
             List<Station> stations = await webClientStations.GetStationsByContainsTags("hard", new FilterListStation());
             Assert.IsTrue(stations.Count > 0);
         }
+
+        [TestMethod]
+        public async Task GetStationsByUUID()
+        {
+            RadioBrowserStations webClientStations = new RadioBrowserStations();
+            List<Station> stations = await webClientStations.GetStationsByTags("metal", new FilterListStation());
+            Assert.IsTrue(stations.Count > 0);
+            List<Station> stationUUID = await webClientStations.GetStationsByUUID(stations[0].Stationuuid, new FilterListStation());
+            Assert.IsTrue(stationUUID.Count == 1);
+        }
     }
 }
