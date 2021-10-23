@@ -22,10 +22,10 @@ namespace TestRadioBrowser.net
 
 
         [TestMethod]
-        public async Task GetStationsByContainsTagsTest()
+        public async Task GetStationsByTagsExactTest()
         {
             RadioBrowserStations webClientStations = new RadioBrowserStations();
-            List<Station> stations = await webClientStations.GetStationsByContainsTags("hard", new FilterListStation());
+            List<Station> stations = await webClientStations.GetStationsByTags("hard", new FilterListStation(), true);
             Assert.IsTrue(stations.Count > 0);
         }
 
