@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
+﻿using System.IO;
 
 namespace RadioBrowser.net.Deserializer
 {
-    class ConvertJson
+    internal class ConvertJson
     {
         protected static Stream _GenerateStreamFromString(string s)
         {
