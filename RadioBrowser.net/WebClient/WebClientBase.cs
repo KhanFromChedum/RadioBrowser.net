@@ -19,8 +19,8 @@ namespace RadioBrowser.net.WebClient
             {
                 filterList = new FilterListBase();
             }
-            var content = new StringContent(filterList.ToJson(), Encoding.UTF8, "application/json");
-            var result = await httpClient.PostAsync(strClient + strSearchTerm, content);
+            var strUrl = filterList.ToURL();
+            var result = await httpClient.PostAsync(strClient + strSearchTerm + strUrl,null);
             return await result.Content.ReadAsStringAsync();
         }
 
@@ -30,8 +30,8 @@ namespace RadioBrowser.net.WebClient
             {
                 filterList = new FilterListBase();
             }
-            var content = new StringContent(filterList.ToJson(), Encoding.UTF8, "application/json");
-            var result = await httpClient.PostAsync(strClient + @"stations/"+ strSearchItem +  @"/" +strSearchTerm, content);
+            var strUrl = filterList.ToURL();
+            var result = await httpClient.PostAsync(strClient + @"stations/"+ strSearchItem +  @"/" +strSearchTerm + strUrl, null);
             return await result.Content.ReadAsStringAsync();
         }
     }

@@ -16,10 +16,17 @@ namespace TestRadioBrowser.net
         public async Task GetStationsByTagsTest()
         {
             RadioBrowserStations webClientStations = new RadioBrowserStations();
-            List<Station> stations = await webClientStations.GetStationsByTags("metal", new FilterListStation());
+            List<Station> stations = await webClientStations.GetStationsByTags("metal");
             Assert.IsTrue(stations.Count > 0);
         }
 
+        [TestMethod]
+        public async Task GetStationsByTagsfilterTest()
+        {
+            RadioBrowserStations webClientStations = new RadioBrowserStations();
+            List<Station> stations = await webClientStations.GetStationsByTags("metal", new FilterListStation() {Limit=1 });
+            Assert.IsTrue(stations.Count == 1);
+        }
 
         [TestMethod]
         public async Task GetStationsByTagsExactTest()

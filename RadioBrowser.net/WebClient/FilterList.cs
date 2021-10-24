@@ -16,7 +16,36 @@ namespace RadioBrowser.net.WebClient
 
         public string ToJson()
         {
-            return JsonSerializer.Serialize<FilterList_>(this).ToString();
+            return JsonSerializer.Serialize<FilterList_>(this);
+        }
+
+        public string ToURL()
+        {
+            string strUrl = "";
+            var properties = typeof(FilterList_).GetProperties();
+
+            bool bFirst = true;
+            foreach (var property in properties)
+            {
+                if (property.GetValue(this) != null)
+                {
+                    if (bFirst)
+                    {
+                        strUrl = "?";
+                        bFirst = false;
+                    }
+                    else
+                    {
+                        strUrl += "&";
+                    }
+                    strUrl += property.Name;
+                    strUrl += "=";
+                    strUrl += property.GetValue(this).ToString().ToLower();
+                }
+                
+            }
+
+            return strUrl;
         }
     }
 
@@ -71,6 +100,11 @@ namespace RadioBrowser.net.WebClient
         public string ToJson()
         {
             return _oFilterlist.ToJson();
+        }
+
+        public string ToURL()
+        {
+            return _oFilterlist.ToURL();
         }
     }
 

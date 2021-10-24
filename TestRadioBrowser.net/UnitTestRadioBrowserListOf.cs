@@ -45,6 +45,15 @@ namespace TestRadioBrowser.net
             Assert.IsTrue(stationCounts.Count > 0);
         }
 
+        [TestMethod]
+        public async Task GetCodecsSortTest()
+        {
+            RadioBrowserListOf webClientListOf = new RadioBrowserListOf();
+            List<StationCount> stationCounts_orderup = await webClientListOf.GetCodecs(new FilterListStationCount() { Reverse = true });
+            List<StationCount> stationCounts_orderdown = await webClientListOf.GetCodecs(new FilterListStationCount() { Reverse = false });
+            Assert.IsTrue(stationCounts_orderup[0].stationcount < stationCounts_orderdown[0].stationcount);
+        }
+
 
         [TestMethod]
         public async Task GetStatesTest()
