@@ -21,7 +21,7 @@ namespace RadioBrowser
         /// <param name="filterList">filter to apply</param>
         /// <param name="bExact">true if exact tag</param>
         /// <returns>station list</returns>
-        internal async Task<List<Station>> GetStationsByTags(string strTag, FilterListStation filterList =null, bool bExact = false)
+        public async Task<List<Station>> GetStationsByTags(string strTag, FilterListStation filterList =null, bool bExact = false)
         {
             string strJson;
             if (bExact)
@@ -42,7 +42,7 @@ namespace RadioBrowser
         /// <param name="strUUID">station unique identifier</param>
         /// <param name="filterList">filter to apply</param>
         /// <returns>station list</returns>
-        internal async Task<List<Station>> GetStationsByUUID(string strUUID, FilterListStation filterList = null)
+        public async Task<List<Station>> GetStationsByUUID(string strUUID, FilterListStation filterList = null)
         {
             string strJson = await GetStations("byuuid", strUUID, filterList);
             return ConvertStation.GetStations(strJson);
@@ -54,7 +54,7 @@ namespace RadioBrowser
         /// <param name="guid">station unique identifier</param>
         /// <param name="filterList">filter to apply</param>
         /// <returns>station list</returns>
-        internal async Task<List<Station>> GetStationsByUUID(Guid guid, FilterListStation filterList = null)
+        public async Task<List<Station>> GetStationsByUUID(Guid guid, FilterListStation filterList = null)
         {
             return await GetStationsByUUID(guid.ToString(), filterList);
         }
@@ -66,7 +66,7 @@ namespace RadioBrowser
         /// <param name="filterList">filter to apply</param>
         /// <param name="bExact">true if exact name</param>
         /// <returns>station list</returns>
-        internal async Task<List<Station>> GetStationsByName(string strName, FilterListStation filterList =null, bool bExact = false)
+        public async Task<List<Station>> GetStationsByName(string strName, FilterListStation filterList =null, bool bExact = false)
         {
             string strJson;
             if (bExact)
@@ -87,7 +87,7 @@ namespace RadioBrowser
         /// <param name="filterList">filter to apply</param>
         /// <param name="bExact">true if exact name</param>
         /// <returns>station list</returns>
-        internal async Task<List<Station>> GetStationsByCodec(string strCodec, FilterListStation filterList =null, bool bExact = false)
+        public async Task<List<Station>> GetStationsByCodec(string strCodec, FilterListStation filterList =null, bool bExact = false)
         {
             string strJson;
             if (bExact)
@@ -108,7 +108,7 @@ namespace RadioBrowser
         /// <param name="filterList">filter to apply</param>
         /// <param name="bExact">true if exact</param>
         /// <returns>station list</returns>
-        internal async Task<List<Station>> GetStationsByCountry(string strCountry, FilterListStation filterList=null, bool bExact = false)
+        public async Task<List<Station>> GetStationsByCountry(string strCountry, FilterListStation filterList=null, bool bExact = false)
         {
             string strJson;
             if (bExact)
@@ -129,7 +129,7 @@ namespace RadioBrowser
         /// <param name="filterList">filter to apply</param>
         /// <param name="bExact">true if exact</param>
         /// <returns>station list</returns>
-        internal async Task<List<Station>> GetStationsByState(string strState, FilterListStation filterList=null, bool bExact = false)
+        public async Task<List<Station>> GetStationsByState(string strState, FilterListStation filterList=null, bool bExact = false)
         {
             string strJson;
             if (bExact)
@@ -150,7 +150,7 @@ namespace RadioBrowser
         /// <param name="filterList">filter to apply</param>
         /// <param name="bExact">true if exact</param>
         /// <returns>station list</returns>
-        internal async Task<List<Station>> GetStationsByLanguage(string strLanguage, FilterListStation filterList=null, bool bExact = false)
+        public async Task<List<Station>> GetStationsByLanguage(string strLanguage, FilterListStation filterList=null, bool bExact = false)
         {
             string strJson;
             if (bExact)

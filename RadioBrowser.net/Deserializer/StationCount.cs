@@ -1,12 +1,12 @@
 ﻿namespace RadioBrowser.net.Deserializer
 {
-    internal class StationCount_
+    public class StationCount_
     {
         public string name { get; set; }
         public int stationcount { get; set; }
     }
 
-    internal class StationCount
+    public class StationCount
     {
         public StationCount(StationCount_ stationCount)
         {

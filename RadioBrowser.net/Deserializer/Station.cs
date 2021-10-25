@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace RadioBrowser.net.Deserializer
 {
-    internal class Station_
+    public class Station_
     {
         public string changeuuid { get; set; }
         public string stationuuid { get; set; }
@@ -39,7 +39,7 @@ namespace RadioBrowser.net.Deserializer
         public bool has_extended_info { get; set; }
     }
 
-    internal class Station
+    public class Station
     {
         private Station_ _oStation;
 
