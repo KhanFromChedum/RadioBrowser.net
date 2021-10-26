@@ -1,4 +1,4 @@
-﻿namespace RadioBrowser.net.Deserializer
+﻿namespace RadioBrowser
 {
     public class StationCount_
     {

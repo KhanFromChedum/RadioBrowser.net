@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace RadioBrowser.net.Deserializer
+namespace RadioBrowser
 {
     public class Station_
     {
