@@ -152,18 +152,26 @@ namespace RadioBrowser
                 return DateTime.Parse(_oStation.lastlocalchecktime_iso8601);
             }
         }
-        public DateTime Clicktimestamp
+        public DateTime? Clicktimestamp
         {
             get
             {
-                return DateTime.Parse(_oStation.clicktimestamp);
+                DateTime t;
+                if (DateTime.TryParse(_oStation.clicktimestamp, out t))
+                    return t;
+                else
+                    return null;
             }
         }
-        public DateTime Clicktimestamp_iso8601
+        public DateTime? Clicktimestamp_iso8601
         {
             get
             {
-                return DateTime.Parse(_oStation.clicktimestamp_iso8601);
+                DateTime t;
+                if (DateTime.TryParse(_oStation.clicktimestamp_iso8601, out t))
+                    return t;
+                else
+                    return null;
             }
         }
         public uint Clickcount
