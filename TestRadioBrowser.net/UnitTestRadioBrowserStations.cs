@@ -45,5 +45,31 @@ namespace TestRadioBrowser.net
             List<Station> stationUUID = await webClientStations.GetStationsByUUID(stations[0].Stationuuid, new FilterListStation());
             Assert.IsTrue(stationUUID.Count == 1);
         }
+
+        [TestMethod]
+        public async Task GetStationsAdvanced_tag_exat()
+        {
+            RadioBrowserStations webClientStations = new RadioBrowserStations();
+            List<Station> stations = await webClientStations.Advanced(new FilterListAdvanced() {Tag="metal", TagExact=true });
+            Assert.IsTrue(stations.Count > 0);
+        }
+
+        [TestMethod]
+        public async Task GetStationsAdvanced_tag_notexact()
+        {
+            RadioBrowserStations webClientStations = new RadioBrowserStations();
+            List<Station> stations = await webClientStations.Advanced(new FilterListAdvanced() { Tag = "met", TagExact=false});
+            Assert.IsTrue(stations.Count > 0);
+        }
+
+
+        [TestMethod]
+        public async Task GetStationsAdvanced_country()
+        {
+            RadioBrowserStations webClientStations = new RadioBrowserStations();
+            List<Station> stations = await webClientStations.Advanced(new FilterListAdvanced() { Country = "Japan" });
+            Assert.IsTrue(stations.Count > 0);
+        }
+
     }
 }

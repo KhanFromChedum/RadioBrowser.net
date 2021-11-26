@@ -163,5 +163,19 @@ namespace RadioBrowser
             }
             return ConvertStation.GetStations(strJson);
         }
+
+        /// <summary>
+        /// Make an multicriteria search
+        /// </summary>
+        /// <param name="filterList">search criteria</param>
+        /// <returns></returns>
+        public async Task<List<Station>> Advanced(FilterListAdvanced filterList)
+        {
+            string strJson;
+
+            strJson = await GetStationsAdvanced(filterList);
+
+            return ConvertStation.GetStations(strJson);
+        }
     }
 }

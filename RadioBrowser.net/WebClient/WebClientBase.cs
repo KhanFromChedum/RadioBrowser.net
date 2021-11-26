@@ -34,5 +34,13 @@ namespace RadioBrowser.net.WebClient
             var result = await httpClient.PostAsync(strClient + @"stations/"+ strSearchItem +  @"/" +strSearchTerm + strUrl, null);
             return await result.Content.ReadAsStringAsync();
         }
+
+        internal async Task<string> GetStationsAdvanced (FilterListAdvanced filterList)
+        {
+
+            var strUrl = filterList.ToURL();
+            var result = await httpClient.PostAsync(strClient + @"stations/search" + strUrl, null);
+            return await result.Content.ReadAsStringAsync();
+        }
     }
 }
